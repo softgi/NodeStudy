@@ -1,11 +1,11 @@
 "use strict";
 
 const hello = (req, res) => {
-    res.render("home/index");
+    res.render("./home/index");
 };
 
 const login = (req, res) => {
-    res.render("/home/login");
+    res.render("./home/login");
 };
 
 module.exports = {
