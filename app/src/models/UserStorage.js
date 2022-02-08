@@ -34,11 +34,11 @@ class UserStorage {
     // }
 
     static getUserInfo(id) {
-        new Promise((resolve, reject) => {
+        return new Promise((resolve, reject) => {
             const query = "SELECT * FROM users WHERE id = ?;"
             db.query(query, [id], (err, data) => {
-                if (err) reject(`${err}`);
-                console.log(data[0].id);
+                if (err) reject(err);
+                // console.log(data[0]);
                 resolve(data[0]);
             });        
         });
@@ -46,11 +46,11 @@ class UserStorage {
 
 
     static async save(userInfo) {
-        new Promise((resolve, reject) => {
-            const query = "INSERT INTO users(id, name, pw) VALUES(?,?,?)"
+       return new Promise((resolve, reject) => {
+            const query = "INSERT INTO users (id, name, pw) VALUES(?,?,?)"
             db.query(query, [userInfo.id, userInfo.name, userInfo.pw] , (err) => {
                 if (err) reject(`${err}`);
-                resolve({ success: true });
+                resolve({ success: true }, userInfo);
             });        
         });
     }
