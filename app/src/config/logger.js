@@ -1,15 +1,21 @@
 const { createLogger, transports, format} = require("winston");
-const { combine, timestamp, printf, json, simple, colorize } = format;
+const { combine, timestamp,label, printf, json, simple, colorize } = format;
+
+const printFormat = printf(
+    ({timestamp, label, level, message}) => {
+    return `${timestamp} [${label}] ${level} : ${message}`
+});
 
 const printLogFormat = combine(
-    colorize(),
+    label({
+        label: "백엔드맛보기"
+    }),
+    // colorize(),
     timestamp({
         format: "YYYY-MM-DD HH:mm:dd"
     }),
     // simple()
-    printf(({timestamp}) => {
-        return `${timestamp} 화이팅`
-    })
+    printFormat
 );
 
 const logger = createLogger({
