@@ -12,9 +12,7 @@ const app = express();
 //라우팅
 const home = require("./src/routes/home");
 
-//logger로 log관리하는법
-const logger = require("./src/config/logger")
-logger.info("Hello 친구들");
+
 
 //morgan으로 log관리하는법
 // const accessLogStream = fs.createWriteStream(
