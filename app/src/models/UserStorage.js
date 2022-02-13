@@ -39,7 +39,7 @@ class UserStorage {
             db.query(query, [id], (err, data) => {
                 if (err) reject(err);
                 // console.log(data[0]);
-                resolve(data[0]);
+                else resolve(data[0]);
             });        
         });
     }
@@ -50,7 +50,7 @@ class UserStorage {
             const query = "INSERT INTO users (id, name, pw) VALUES(?,?,?)"
             db.query(query, [userInfo.id, userInfo.name, userInfo.pw] , (err) => {
                 if (err) reject(`${err}`);
-                resolve({ success: true }, userInfo);
+                else resolve({ success: true }, userInfo);
             });        
         });
     }

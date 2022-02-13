@@ -28,6 +28,7 @@ function register(){
         if(res.success) {
             location.href = '/login'
         } else {
+            if (res.err) return alert("에러");
             alert(res.msg);
         }
     })

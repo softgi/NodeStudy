@@ -5,6 +5,9 @@ const pw = document.querySelector("#pw");
 const btn = document.querySelector("#button");
 
 function loginBtn(){
+    if (!id.value) return alert("아이디를 입력해주세요.");
+    if (!pw.value) return alert("비밀번호를 입력해주세요.");
+
     const req = {
         id: id.value,
         pw: pw.value
@@ -22,6 +25,7 @@ function loginBtn(){
         if(res.success) {
             location.href = '/'
         } else {
+            if (res.err) return alert("에러");
             alert(res.msg);
         }
     })
