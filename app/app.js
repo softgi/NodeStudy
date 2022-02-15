@@ -3,7 +3,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require("dotenv");
-// const fs = require("fs");
+
 dotenv.config();
 
 const app = express();

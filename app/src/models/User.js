@@ -4,6 +4,7 @@ const { response } = require("express");
 const UserStorage = require("./UserStorage");
 
 class User{
+    //다른 모든 메서드 호출보다 먼저 정의할 수 있다.
     constructor(body){
         this.body = body;
     }
